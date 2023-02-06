@@ -1,0 +1,31 @@
+<input type="text" id="txt-price" placeholder="Enter the price of the item">
+#This creates input under a text variable that takes from a txt-price body in a .css style most likely.
+<input type="text" id="txt-quantity" placeholder="Enter the quanity of the item">
+<button id="btn-submit">Calculate</button>
+<div id="output"></div>
+#In fact, all the IDS seem to take place from a hidden css file we cannot see.
+
+<script>
+  var priceInput = document.getElementById('txt-price');
+  #Nevermind. It was right here. I assume it asks for the element for its ID?
+  var quantityInput = document.getElementById('txt-quantity');
+  #this makes sure to get another input, butfor the amount given.
+  var submitBtn = document.getElementById('btn-submit');
+  var output = document.getElementById('output');
+  #I assume these variables are used to be the actual math of the input?
+
+  submitBtn.addEventListener('click', function () {
+    var price = priceInput.value;
+    var quanity = quantityInput.value;
+    price = +price;
+    quanity = +quanity;
+    if (Number.isNaN(price) || Number.isNaN(quanity)) {
+      output.innerHTML = 'Invalid input';
+      return;
+    }
+    var totalPrice = price * quanity;
+    totalPrice = Math.round(totalPrice * 100) / 100;
+    output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice;
+  });
+  #The code above seems to run the actual buttom itself. Beyond that, I'm not entirely sure what its doing..
+</script>
